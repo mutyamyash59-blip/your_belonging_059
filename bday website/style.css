@@ -1,0 +1,625 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    color: white;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(129, 190, 255, 0.35), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(184, 129, 255, 0.30), transparent 30%),
+        linear-gradient(135deg, #08152f, #142b55 45%, #26174d);
+
+    position: relative;
+}
+
+/* ---------- SCREENS ---------- */
+
+.screen {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(0.96) translateY(20px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1) translateY(0);
+}
+
+/* ---------- GLASS CARD ---------- */
+
+.glass-card {
+    width: min(92vw, 470px);
+
+    max-height: 88vh;
+    overflow-y: auto;
+
+    padding: 38px 28px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px rgba(255, 255, 255, 0.18);
+
+    animation: cardFloat 5s ease-in-out infinite;
+}
+
+.glass-card::-webkit-scrollbar {
+    width: 4px;
+}
+
+.glass-card::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+}
+
+/* ---------- TEXT ---------- */
+
+h1 {
+    font-family: "Caveat", cursive;
+    font-size: clamp(42px, 11vw, 62px);
+    line-height: 1;
+    margin-bottom: 14px;
+
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.subtitle {
+    font-size: 15px;
+    opacity: 0.78;
+    margin-bottom: 28px;
+}
+
+.small-text {
+    font-size: 14px;
+    opacity: 0.75;
+    margin-bottom: 10px;
+}
+
+/* ---------- EMOJIS ---------- */
+
+.emoji {
+    font-size: 55px;
+    margin-bottom: 15px;
+
+    animation: gentleBounce 2.5s ease-in-out infinite;
+}
+
+.stitch-placeholder,
+.final-stitch {
+    font-size: 85px;
+    margin-bottom: 15px;
+
+    animation: stitchFloat 3s ease-in-out infinite;
+}
+
+/* ---------- CHOICES ---------- */
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.choices button,
+.main-button,
+.small-button {
+    width: 100%;
+
+    border: none;
+    border-radius: 18px;
+
+    padding: 15px 20px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    color: white;
+
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.13);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.choices button:hover,
+.main-button:hover,
+.small-button:hover {
+    transform: translateY(-3px) scale(1.02);
+
+    background: rgba(255, 255, 255, 0.22);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.choices button:active,
+.main-button:active,
+.small-button:active {
+    transform: scale(0.96);
+}
+
+/* ---------- MAIN BUTTON ---------- */
+
+.main-button {
+    margin-top: 15px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(120, 194, 255, 0.65),
+        rgba(180, 133, 255, 0.65)
+    );
+}
+
+/* ---------- WRONG ANSWER ---------- */
+
+#wrongAnswer {
+    min-height: 25px;
+
+    margin-top: 18px;
+
+    color: #ffd7ed;
+
+    font-family: "Caveat", cursive;
+    font-size: 24px;
+
+    animation: shake 0.4s ease;
+}
+
+/* ---------- BIRTHDAY MESSAGE ---------- */
+
+.birthday-card {
+    padding-top: 30px;
+}
+
+.cake {
+    font-size: 60px;
+    margin-bottom: 8px;
+
+    animation: gentleBounce 2s infinite;
+}
+
+.message {
+    text-align: left;
+
+    margin-top: 25px;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.message p {
+    margin-bottom: 18px;
+}
+
+.message strong {
+    color: #dff5ff;
+}
+
+/* ---------- VOICE ---------- */
+
+.voice-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+
+    animation: gentleBounce 2s infinite;
+}
+
+.stitch-button {
+    width: 130px;
+    height: 130px;
+
+    margin: 20px auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255,255,255,0.25);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(145, 211, 255, 0.45),
+            rgba(110, 130, 255, 0.18)
+        );
+
+    font-size: 70px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 35px rgba(113, 193, 255, 0.35);
+
+    animation: pulse 2s infinite;
+
+    transition: transform 0.25s ease;
+}
+
+.stitch-button:hover {
+    transform: scale(1.08);
+}
+
+#voiceStatus {
+    font-size: 14px;
+    opacity: 0.75;
+    margin-bottom: 25px;
+}
+
+.small-button {
+    width: auto;
+    padding: 11px 18px;
+    font-size: 13px;
+}
+
+/* ---------- FINAL ---------- */
+
+.final-card {
+    position: relative;
+}
+
+.final-card p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.floating-hearts {
+    margin: 30px 0;
+
+    font-size: 25px;
+
+    letter-spacing: 8px;
+
+    animation: heartsFloat 2.5s ease-in-out infinite;
+}
+
+.signature {
+    font-family: "Caveat", cursive;
+    font-size: 25px !important;
+    opacity: 0.85;
+}
+
+/* ---------- STARS ---------- */
+
+.stars::before,
+.stars::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size: 90px 90px;
+
+    opacity: 0.18;
+
+    animation: starsMove 25s linear infinite;
+}
+
+.stars::after {
+    background-size: 140px 140px;
+    opacity: 0.12;
+
+    animation-duration: 40s;
+}
+
+/* ---------- HEARTS ---------- */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes gentleBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes stitchFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(2deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow:
+            0 0 25px rgba(113, 193, 255, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 0 55px rgba(113, 193, 255, 0.55);
+    }
+}
+
+@keyframes heartsFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes starsMove {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-90px);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-7px);
+    }
+
+    75% {
+        transform: translateX(7px);
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 500px) {
+
+    .screen {
+        padding: 15px;
+    }
+
+    .glass-card {
+        padding: 30px 22px;
+        border-radius: 26px;
+    }
+
+    h1 {
+        font-size: 46px;
+    }
+
+    .message {
+        font-size: 13.5px;
+        line-height: 1.75;
+    }
+}
+/* ===============================
+   ONE LAST QUESTION
+================================ */
+
+#question2Result {
+    margin-top: 20px;
+}
+
+.gundu-animation {
+    font-size: 90px;
+    animation: gunduPop 0.6s ease;
+}
+
+.gundu-text {
+    font-family: "Caveat", cursive;
+    font-size: 42px;
+    font-weight: 700;
+    margin-top: 5px;
+    animation: textPop 0.5s ease;
+}
+
+.try-again-text {
+    margin-top: 8px;
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+.cute-result {
+    font-size: 55px;
+    animation: gunduPop 0.6s ease;
+}
+
+.stay-text {
+    font-family: "Caveat", cursive;
+    font-size: 34px;
+    font-weight: 700;
+    margin-top: 8px;
+    animation: textPop 0.6s ease;
+}
+
+.cute-result-small {
+    font-size: 16px;
+    margin-top: 8px;
+    opacity: 0.8;
+    animation: textPop 0.9s ease;
+}
+
+@keyframes gunduPop {
+
+    0% {
+        transform: scale(0) rotate(-20deg);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.25) rotate(10deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes textPop {
+
+    0% {
+        transform: translateY(15px) scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+/* ===============================
+   TRUE FINAL MESSAGE
+================================ */
+
+.final-message-pop {
+    animation: finalMessagePop 0.8s ease;
+}
+
+.final-wish {
+    font-family: "Caveat", cursive;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 10px;
+}
+
+.final-wish-text {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-top: 14px;
+    animation: textPop 0.8s ease;
+}
+
+@keyframes finalMessagePop {
+
+    0% {
+        transform: scale(0.7) translateY(20px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.05) translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* ===============================
+   TRUE FINAL BIRTHDAY SCREEN
+================================ */
+
+.true-final-card {
+    padding: 35px 25px;
+}
+
+.sting-image {
+    width: min(230px, 65vw);
+    max-height: 250px;
+    object-fit: contain;
+
+    display: block;
+    margin: 0 auto 15px;
+
+    animation: stitchFloat 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25))
+        drop-shadow(0 0 20px rgba(130, 205, 255, 0.25));
+}
+
+.true-final-card h1 {
+    font-size: clamp(42px, 10vw, 58px);
+    margin-bottom: 18px;
+}
+
+.true-final-text {
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.85;
+}
+
+.final-sparkles {
+    margin-top: 25px;
+    font-size: 24px;
+    letter-spacing: 6px;
+
+    animation: heartsFloat 2.5s ease-in-out infinite;
+}

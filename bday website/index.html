@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A your belonging 🩵</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="stars"></div>
+    <div class="hearts"></div>
+
+    <!-- SCREEN 0 -->
+    <section class="screen active" id="questionScreen">
+        <div class="glass-card">
+            <div class="emoji">🫠</div>
+
+            <h1>  What am I to you?</h1>
+            <p class="subtitle">Choose carefully... 👀</p>
+
+            <div class="choices">
+                <button onclick="chooseAnswer('stranger')">🤍 Stranger</button>
+                <button onclick="chooseAnswer('friend')">💙 Friend</button>
+                <button onclick="chooseAnswer('best')">🩵 Best Friend</button>
+
+            </div>
+
+            <p id="wrongAnswer"></p>
+        </div>
+    </section>
+
+
+    <!-- SCREEN 1 -->
+    <section class="screen" id="welcomeScreen">
+        <div class="glass-card">
+            <div class="stitch-placeholder">🧸🩵</div>
+
+            <p class="small-text">Okayyy... you got it right 😌</p>
+
+            <h1>Hey, little pumpkin... 🩵</h1>
+
+            <p class="subtitle">
+                I made something for you. 👀
+            </p>
+
+            <button class="main-button" onclick="goToBirthday()">
+                Tap to open ✨
+            </button>
+        </div>
+    </section>
+
+
+    <!-- SCREEN 2 -->
+    <section class="screen" id="birthdayScreen">
+        <div class="glass-card birthday-card">
+
+            <div class="cake">🎂</div>
+
+            <h1>Happiest Birthdayyyy! 🎀🩵</h1>
+
+            <div class="message">
+                <p>
+                    Every day has been a little more special since
+                    <strong>25•09•2007</strong>,
+                    because someone I respect so much and feel genuinely
+                    special about was born that day.
+                </p>
+
+                <p>
+                    And somehow, that person also happens to be
+                    <strong>the cutest.</strong> 🫠
+                </p>
+
+                <p>
+		    i always love to see the cutest as the happiest 🩵
+                </p>
+
+                <p>
+                    I wish, hope & manifest that whatever we call this bond,
+                    it continues to grow and stays just as special. 🤗🩵
+                </p>
+            </div>
+
+            <button class="main-button" onclick="goToFinal()">
+                There's more... 👀
+            </button>
+
+        </div>
+    </section>
+
+    <!-- SCREEN 3 -->
+    <section class="screen" id="finalScreen">
+        <div class="glass-card final-card">
+
+            <div class="final-stitch">🧸🩵</div>
+
+            <h1>Stay happy, little pumpkin. 🩵</h1>
+
+            <p>
+                And never let the dimples on your face fade away. 🤗
+            </p>
+
+            <div class="floating-hearts">
+                🩵 ✨ 🩵 ✨ 🩵
+            </div>
+
+            <p class="signature">
+                — from someone who's face becomes brighter just to have your presence in his life . 🫠
+            </p>
+
+	    <button class="small-button" 
+	    onclick="showLastQuestion()">
+   		 Wait... one more question to ask 🧐
+            </button>
+        </div>
+    </section>
+<!-- ONE LAST QUESTION -->
+<section class="screen" id="question2Screen">
+    <div class="glass-card">
+
+        <div class="emoji">🧐</div>
+
+        <h1>Wait... one more question to ask 🧐</h1>
+
+        <button class="main-button" onclick="showLeaveQuestion()">
+            Okay, ask me 👀
+        </button>
+
+    </div>
+</section>
+
+
+<!-- LEAVE QUESTION -->
+<section class="screen" id="leaveScreen">
+    <div class="glass-card">
+
+        <div class="emoji">🤨</div>
+
+        <h1>You won't leave me, right? 😾</h1>
+
+        <div class="choices">
+
+            <button onclick="dontKnow()">
+                🤷‍♀️ I don't know
+            </button>
+
+            <button onclick="stayAnswer()">
+                🩵 I won't leave
+            </button>
+
+        </div>
+
+        <div id="question2Result"></div>
+
+    </div>
+</section>
+
+<!-- TRUE FINAL BIRTHDAY SCREEN -->
+<section class="screen" id="trueFinalScreen">
+    <div class="glass-card true-final-card">
+
+        <img src="sting.png" alt="Stitch" class="sting-image">
+
+        <h1>once againn Happiest Birthday<br>my dear adorable humannnn!! 🩵🎀</h1>
+
+        <p class="true-final-text">
+            thank youhh for patiently wasting your time !!. 🫠🩵
+        </p>
+
+        <div class="final-sparkles">
+            ✨ 🩵 ✨ 🩵 ✨
+        </div>
+
+    </div>
+</section>
+
+<audio id="backgroundMusic" src="background.mpeg" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
